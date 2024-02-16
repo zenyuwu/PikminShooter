@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject[] pikminPrefabs;
     [SerializeField] private Transform shooterTransform;
     [SerializeField] private TMP_Text[] pikminCounts;
+    [SerializeField] private Image[] pikminImages;
+    [SerializeField] private Sprite[] pikminSprites;
+    [SerializeField] private GameObject[] leafPrefabs;
+    [SerializeField] private GameObject[] budPrefabs;
+    [SerializeField] private GameObject[] flowerPrefabs;
+    private int tier = 0;
+
 
     private int currentItem;
 
@@ -48,5 +56,29 @@ public class Inventory : MonoBehaviour
     public void Fire()
     {
         Instantiate(pikminPrefabs[currentItem], shooterTransform.position, shooterTransform.rotation);
+    }
+
+    public void Upgrade()
+    {
+        switch (tier)
+        {
+            case 0:
+                for(int i = 0; i < pikminPrefabs.Length; i++)
+                 {
+                    pikminPrefabs[i] = budPrefabs[i];
+                    pikminImages[i].overrideSprite = pikminSprites[i];
+                }
+                tier++;
+                break;
+            case 1:
+				//for (int i = 0; i < pikminPrefabs.Length; i++)
+				//{
+				//	pikminPrefabs[i] = flowerPrefabs[i];
+				//}
+                tier++;
+				break;
+            case 2:
+                break;
+        }
     }
 }

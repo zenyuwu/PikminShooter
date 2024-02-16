@@ -135,7 +135,7 @@ MonoBehaviour:
   health: 20
   points: 10
   scoreEvent: {fileID: 11400000, guid: 4d73c3d7d9c0f3b41a803f8b6a5eab2a, type: 2}
-  fireTimer: 5
+  fireTimer: 3
   hitPrefab: {fileID: 0}
   destroyPrefab: {fileID: 0}
   shooterTransform: {fileID: 6310603126946282482}

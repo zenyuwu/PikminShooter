@@ -22,6 +22,10 @@ public class PathFollower : MonoBehaviour
 
     void Update()
     {
+        if(tdistance >= 0.99)
+        {
+            return;
+        }
         distance += speed * Time.deltaTime;
         UpdateTransform(math.frac(tdistance));
     }

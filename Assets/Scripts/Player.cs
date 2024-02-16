@@ -9,6 +9,9 @@ public class Player : MonoBehaviour, IDamagable
 	[SerializeField] private VoidEvent gameOverEvent;
 	[SerializeField] protected GameObject hitPrefab;
 	[SerializeField] private AudioSource yahoo;
+	[SerializeField] private float fireTimer;
+
+	private float timer;
 
 	public void ApplyDamage(float damage)
 	{
@@ -34,10 +37,17 @@ public class Player : MonoBehaviour, IDamagable
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+		timer -= Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.Space) && timer <= 0)
         {
+			timer = fireTimer;
             inventory.Fire();
 			yahoo.Play();
         }
     }
+
+	public void UpgradePikmin()
+	{
+		inventory.Upgrade();
+	}
 }

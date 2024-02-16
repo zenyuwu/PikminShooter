@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour, IDamagable
 
 	private float timer;
 
+	private void Start()
+	{
+		timer = fireTimer;
+	}
+
 	public void ApplyDamage(float damage)
 	{
 		health -= damage;
@@ -42,13 +47,13 @@ public class Enemy : MonoBehaviour, IDamagable
 
 	private void Update()
 	{
-		timer -= Time.deltaTime;
 		GameObject[] objects = perception.GetGameObjects();
 		foreach(GameObject player in objects)
 		{
 			if (player == null) continue;
 			if (Vector3.Distance(player.transform.position, transform.position) < 200)
 			{
+				timer -= Time.deltaTime;
 				if(timer <= 0)
 				{
 					Instantiate(pikminPrefab, shooterTransform.position, shooterTransform.rotation);

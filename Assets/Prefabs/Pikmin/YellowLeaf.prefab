@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f02c4cb982c2747a09d98247dda277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pikminData: {fileID: 11400000, guid: b7ab6f96f4424d542a505cb62d834c90, type: 2}
+  pikminData: {fileID: 11400000, guid: 3742633e46730f441bded5966ae40f03, type: 2}
 --- !u!54 &-5025749960674422418
 Rigidbody:
   m_ObjectHideFlags: 0
